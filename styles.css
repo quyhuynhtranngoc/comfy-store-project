@@ -321,6 +321,18 @@ Navbar
   }
 }
 
+.page .nav-link {
+  color: var(--clr-grey-1);
+}
+
+.page .nav-link:hover {
+  color: var(--clr-primary-5);
+}
+
+.page .toggle-cart {
+  color: var(--clr-grey-1);
+}
+
 /*
 =============== 
 Hero
@@ -580,4 +592,48 @@ Cart
   cursor: pointer;
   font-size: 0.85rem;
   padding: 0.25rem;
+}
+
+/*
+=============== 
+About Page
+===============
+*/
+
+.about-text {
+  line-height: 2;
+  max-width: 45em;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.page-hero {
+  min-height: 20vh;
+  display: grid;
+  place-items: center;
+  background: var(--clr-grey-10);
+  color: var(--clr-grey-5);
+}
+
+.page-hero-title {
+  font-weight: 500;
+}
+
+/*
+=============== 
+Title
+===============
+*/
+
+.title h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
+
+.title span {
+  color: var(--clr-primary-5);
+  font-size: 0.85em;
+  margin-right: 1rem;
 }
