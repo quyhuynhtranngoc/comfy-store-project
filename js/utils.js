@@ -11,7 +11,6 @@ const getElement = (selection) => {
     throw new Error(`Please check "${selection}" selector, no such element exist`)
 }
 
-
 const getStorageItem = (item) => {
     let storageItem = localStorage.getItem(item)
     if (storageItem) {
@@ -26,10 +25,19 @@ const setStorageItem = (name, item) => {
     localStorage.setItem(name, JSON.stringify(item))
 }
 
+const formatPrice = (price) => {
+    let formattedPrice = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    }).format((price / 100).toFixed(2))
+    return formattedPrice
+}
+
 export {
     allProductsUrl,
     singleProductUrl,
     getElement,
     getStorageItem,
-    setStorageItem
+    setStorageItem,
+    formatPrice
 }

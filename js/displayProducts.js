@@ -1,8 +1,10 @@
+import { formatPrice } from "./utils.js";
+
 const display = (products, element) => {
-    element.innerHTML = products
-        .map((product) => {
-            const { id, name, image, price } = product;
-            return `<article class="product">
+  element.innerHTML = products
+    .map((product) => {
+      const { id, name, image, price } = product;
+      return `<article class="product">
           <div class="product-container">
             <img src="${image}" class="product-img img" alt="${name}" />
            
@@ -17,10 +19,10 @@ const display = (products, element) => {
           </div>
           <footer>
             <p class="product-name">${name}</p>
-            <h4 class="product-price">${price}</h4>
+            <h4 class="product-price">${formatPrice(price)}</h4>
           </footer>
         </article> `;
-        }).join('');
+    }).join('');
 };
 
 export default display;
