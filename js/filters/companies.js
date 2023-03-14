@@ -3,7 +3,6 @@ import { getElement } from "../utils.js";
 
 const setupCompanies = (store) => {
     let companies = ['all', ...new Set(store.map(product => product.company))];
-    console.log(companies);
 
     const companiesDOM = getElement('.companies');
     companiesDOM.innerHTML = companies.map(company => {

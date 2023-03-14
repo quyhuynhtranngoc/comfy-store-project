@@ -6,6 +6,7 @@ import { store } from '../store.js'
 import { getElement } from '../utils.js';
 import setupSearch from '../filters/search.js';
 import setupCompanies from '../filters/companies.js';
+import setupPrice from '../filters/price.js';
 
 display(store, getElement('.products-container'));
 const loading = getElement('.page-loading');
@@ -13,3 +14,4 @@ loading.style.display = 'none';
 
 setupSearch(store);
 setupCompanies(store);
+setupPrice(store);
