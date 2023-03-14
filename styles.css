@@ -852,3 +852,12 @@ Products Page
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.filter-error {
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 4rem;
+}
