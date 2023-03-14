@@ -2,7 +2,7 @@ import '../toggleSidebar.js';
 import '../cart/toggleCart.js';
 import { formatPrice, getElement, singleProductUrl } from '../utils.js';
 import { addToCart } from '../cart/setupCart.js';
-
+import '../cart/setupCart.js';
 // selections
 const loading = getElement('.page-loading');
 const centerDOM = getElement('.single-product-center');

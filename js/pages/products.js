@@ -1,5 +1,6 @@
 import '../toggleSidebar.js';
 import '../cart/toggleCart.js';
+import '../cart/setupCart.js';
 
 import display from '../displayProducts.js';
 import { store } from '../store.js'

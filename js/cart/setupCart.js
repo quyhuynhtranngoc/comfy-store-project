@@ -14,7 +14,6 @@ export const addToCart = (id) => {
         product = { ...product, amount: 1 };
         cart = [...cart, product];
         addToCartDOM(product);
-        console.log(cart);
     } else {
         // update values
     }
@@ -36,8 +35,22 @@ function displayCartTotal() {
     }, 0);
     cartTotalDOM.textContent = `Total : ${formatPrice(total)} `;
 }
+
+function displayCartItemsDOM() {
+    cart.forEach((cartItem) => {
+        addToCartDOM(cartItem);
+    });
+}
+function setupCartFunctionality() {
+
+}
+
 const init = () => {
-    console.log(cart);
+    displayCartItemCount();
+    displayCartTotal();
+    displayCartItemsDOM();
+    setupCartFunctionality();
+
 }
 
 init();
