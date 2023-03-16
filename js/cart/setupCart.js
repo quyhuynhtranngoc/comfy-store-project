@@ -5,6 +5,7 @@ import { openCart } from "./toggleCart.js";
 
 let cart = getStorageItem('cart');
 const cartItemCountDOM = getElement('.cart-item-count');
+const cartItemsDOM = getElement('.cart-items');
 const cartTotalDOM = getElement('.cart-total');
 
 export const addToCart = (id) => {
@@ -16,6 +17,10 @@ export const addToCart = (id) => {
         addToCartDOM(product);
     } else {
         // update values
+        const amount = increaseAmount(id);
+        const items = [...cartItemsDOM.querySelectorAll('.cart-item-amount')];
+        const newAmount = items.find(value => value.dataset.id === id);
+        newAmount.textContent = amount;
     }
     displayCartItemCount();
     displayCartTotal();
@@ -34,6 +39,18 @@ function displayCartTotal() {
         return (total += cartItem.price * cartItem.amount);
     }, 0);
     cartTotalDOM.textContent = `Total : ${formatPrice(total)} `;
+}
+
+function increaseAmount(id) {
+    let newAmount;
+    cart = cart.map((cartItem) => {
+        if (cartItem.id === id) {
+            newAmount = cartItem.amount + 1;
+            cartItem = { ...cartItem, amount: newAmount };
+        }
+        return cartItem;
+    });
+    return newAmount;
 }
 
 function displayCartItemsDOM() {
