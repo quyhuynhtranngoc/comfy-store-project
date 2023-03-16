@@ -3,16 +3,27 @@ import '../cart/toggleCart.js';
 import '../cart/setupCart.js';
 
 import display from '../displayProducts.js';
-import { store } from '../store.js'
+import { setupStore, store } from '../store.js'
 import { getElement } from '../utils.js';
 import setupSearch from '../filters/search.js';
 import setupCompanies from '../filters/companies.js';
 import setupPrice from '../filters/price.js';
 
-display(store, getElement('.products-container'));
-const loading = getElement('.page-loading');
-loading.style.display = 'none';
+import fetchProducts from '../fetchProducts.js'
 
-setupSearch(store);
-setupCompanies(store);
-setupPrice(store);
+const init = async () => {
+    const loading = getElement('.page-loading');
+
+    if (store.length < 1) {
+        const products = await fetchProducts();
+        setupStore(products);
+    }
+
+    display(store, getElement('.products-container'));
+    setupSearch(store);
+    setupCompanies(store);
+    setupPrice(store);
+    loading.style.display = 'none';
+}
+
+init();
